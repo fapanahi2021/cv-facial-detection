@@ -1,6 +1,6 @@
 # OpenCV program to detect face in real time
 # import libraries of python OpenCV
-# where its functionality resides
+# where its functionality resides, وارد کردن کتابخانه
 import cv2
 
 # load the required trained XML classifiers
@@ -9,18 +9,18 @@ import cv2
 # Trained XML classifiers describes some features of some
 # object we want to detect a cascade function is trained
 # from a lot of positive(faces) and negative(non-faces)
-# images.
+# images., استفاده از فایل مورد نظر ایکس ام آموزش دیده برای شناسایی چهره
 face_cascade = cv2.CascadeClassifier('haarcascade_frontalface_default.xml')
 
 # https://github.com/Itseez/opencv/blob/master
 # /data/haarcascades/haarcascade_eye.xml
-# Trained XML file for detecting eyes
+# Trained XML file for detecting eyes, استفاده از فایل ایکس ام ال برای شناسایی چشم
 eye_cascade = cv2.CascadeClassifier('haarcascade_eye.xml')
 
-# capture frames from a camera
+# capture frames from a camera, وصل شدن به وب کم
 cap = cv2.VideoCapture(1)
 
-# loop runs if capturing has been initialized.
+# loop runs if capturing has been initialized.,  نوشتن حلقه مورد نظر برای کشیدن مستطیل دور چهره
 while 1:
 
 	# reads frames from a camera
@@ -45,15 +45,15 @@ while 1:
 		for (ex,ey,ew,eh) in eyes:
 			cv2.rectangle(roi_color,(ex,ey),(ex+ew,ey+eh),(0,127,255),2)
 
-	# Display an image in a window
+	# Display an image in a window, نشان دادن تصویر
 	cv2.imshow('img',img)
 
-	# Wait for Esc key to stop
+	# Wait for Esc key to stop, ایجاد وقفه
 	k = cv2.waitKey(30) & 0xff
 	if k == 27:
 		break
 
-# Close the window
+# Close the window, بستن پنجره
 cap.release()
 
 # De-allocate any associated memory usage
